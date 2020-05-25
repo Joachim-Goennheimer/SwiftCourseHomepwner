@@ -29,24 +29,18 @@ class ItemStore {
     }
     
     func moveItem(from fromIndex: Int, to toIndex: Int) {
-        print(fromIndex)
-        print(toIndex)
+        
         if fromIndex == toIndex {
             return
         }
-        else if (toIndex >= allItems.count) {
-            let movedItem = allItems[fromIndex]
-            
-            allItems.remove(at: fromIndex)
-            
-            allItems.insert(movedItem, at: fromIndex)
+//            check is necessary because No more items is implemented as additional row. Otherwise app might crash
+        else if (toIndex >= allItems.count || fromIndex >= allItems.count) {
+            return
         }
         else {
 
             let movedItem = allItems[fromIndex]
-            
             allItems.remove(at: fromIndex)
-            
             allItems.insert(movedItem, at: toIndex)
         }
         

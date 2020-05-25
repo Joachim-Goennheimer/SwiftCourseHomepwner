@@ -27,10 +27,13 @@ class ItemsViewController: UITableViewController {
     
     @IBAction func addNewItem(_ sender: UIButton) {
         
-        let lastRow = tableView.numberOfRows(inSection: 0)
-        let indexPath = IndexPath(row: lastRow, section: 0)
+        let newItem = itemStore.createItem()
         
-        tableView.insertRows(at: [indexPath], with: .automatic)
+        if let index = itemStore.allItems.firstIndex(of: newItem) {
+            let indexPath = IndexPath(row: index, section: 0)
+            tableView.insertRows(at: [indexPath], with: .automatic)
+
+        }
     }
     
     

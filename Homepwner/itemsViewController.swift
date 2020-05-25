@@ -13,12 +13,19 @@ class ItemsViewController: UITableViewController {
     var itemStore: ItemStore!
     var numberOfItems: Int = 0
 
+    @IBAction func toggleEditingMode(_ sender: UIButton) {
+    }
+    
+    @IBAction func addNewItem(_ sender: UIButton) {
+    }
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
          tableView.backgroundView = UIImageView(image: UIImage(named: "wood-591631_1280"))
     }
+    
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
 //        Silver Challenge. One additional row for displaying "no more items"
         return itemStore.allItems.count + 1

@@ -21,10 +21,10 @@ class ItemStore {
         return newItem
         
     }
-    
-    init() {
-        for _ in 0..<10 {
-            createItem()
-        }
-    }
+//
+//    init() {
+//        for _ in 0..<10 {
+//            createItem()
+//        }
+//    }
 }

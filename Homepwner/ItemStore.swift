@@ -34,6 +34,7 @@ class ItemStore {
             return
         }
 //            check is necessary because No more items is implemented as additional row. Otherwise app might crash
+//            Note: not necessary anymore after completing gold challenge.
         else if (toIndex >= allItems.count || fromIndex >= allItems.count) {
             return
         }

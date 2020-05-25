@@ -11,23 +11,43 @@ import UIKit
 class ItemsViewController: UITableViewController {
 
     var itemStore: ItemStore!
+    var numberOfItems: Int = 0
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return itemStore.allItems.count
+//        Silver Challenge. One additional row for displaying "no more items"
+        return itemStore.allItems.count + 1
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
 //        let cell = UITableViewCell(style: .value1, reuseIdentifier: "UITableViewCell")
         
         let cell = tableView.dequeueReusableCell(withIdentifier: "UITableViewCell", for: indexPath)
-        
-        
-        let item = itemStore.allItems[indexPath.row]
-        
+        var item = Item(name: "No more items", serialNumber: "", valueInDollars: 0)
+        cell.detailTextLabel?.text = ""
+//        check if there is an item for the respective row. Otherwise it is the last row which displays "No more items"
+        if (indexPath.row < itemStore.allItems.count) {
+            item = itemStore.allItems[indexPath.row]
+            cell.detailTextLabel?.text = "$ \(item.valueInDollars)"
+            
+//            Gold challenge. Changing font size for all rows except last row.
+            cell.textLabel?.font = UIFont.systemFont(ofSize: 20)
+            cell.detailTextLabel?.font = UIFont.systemFont(ofSize: 20)
+        }
+
         cell.textLabel?.text = item.name
-        cell.detailTextLabel?.text = "$ \(item.valueInDollars)"
         
         return cell
     }
+    
+//    Gold challenge. Changing height of rows.
+    override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        
+        if(indexPath.row < itemStore.allItems.count) {
+            return CGFloat(60)
+        } else {
+            return CGFloat(44)
+        }
+    }
+    
 }
 

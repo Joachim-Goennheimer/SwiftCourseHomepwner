@@ -13,6 +13,12 @@ class ItemsViewController: UITableViewController {
     var itemStore: ItemStore!
     var numberOfItems: Int = 0
 
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        
+         tableView.backgroundView = UIImageView(image: UIImage(named: "wood-591631_1280"))
+    }
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
 //        Silver Challenge. One additional row for displaying "no more items"
         return itemStore.allItems.count + 1
@@ -24,6 +30,7 @@ class ItemsViewController: UITableViewController {
         let cell = tableView.dequeueReusableCell(withIdentifier: "UITableViewCell", for: indexPath)
         var item = Item(name: "No more items", serialNumber: "", valueInDollars: 0)
         cell.detailTextLabel?.text = ""
+        
 //        check if there is an item for the respective row. Otherwise it is the last row which displays "No more items"
         if (indexPath.row < itemStore.allItems.count) {
             item = itemStore.allItems[indexPath.row]
@@ -35,6 +42,9 @@ class ItemsViewController: UITableViewController {
         }
 
         cell.textLabel?.text = item.name
+        
+        cell.textLabel?.textColor = UIColor(white: 1.0, alpha: 1.0)
+        cell.detailTextLabel?.textColor = UIColor(white: 1.0, alpha: 1.0)
         
         return cell
     }

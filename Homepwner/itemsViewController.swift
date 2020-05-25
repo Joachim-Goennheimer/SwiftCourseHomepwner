@@ -83,5 +83,24 @@ class ItemsViewController: UITableViewController {
         }
     }
     
+    override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
+        var isEditable = true
+        
+        if(indexPath.row >= itemStore.allItems.count) {
+            isEditable = false
+        }
+        return isEditable
+    }
+    
+    override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+        
+        if editingStyle == .delete {
+            let item = itemStore.allItems[indexPath.row]
+            itemStore.removeItem(item)
+            
+            tableView.deleteRows(at: [indexPath], with: .automatic)
+        }
+    }
+    
 }
 

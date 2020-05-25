@@ -40,7 +40,8 @@ class ItemsViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-         tableView.backgroundView = UIImageView(image: UIImage(named: "wood-591631_1280"))
+        tableView.backgroundView = UIImageView(image: UIImage(named: "wood-591631_1280"))
+        tableView.backgroundView?.alpha = 0.5
     }
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -100,6 +101,10 @@ class ItemsViewController: UITableViewController {
             
             tableView.deleteRows(at: [indexPath], with: .automatic)
         }
+    }
+    
+    override func tableView(_ tableView: UITableView, moveRowAt sourceIndexPath: IndexPath, to destinationIndexPath: IndexPath) {
+        itemStore.moveItem(from: sourceIndexPath.row, to: destinationIndexPath.row)
     }
     
 }

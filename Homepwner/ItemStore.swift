@@ -27,6 +27,30 @@ class ItemStore {
             allItems.remove(at: index)
         }
     }
+    
+    func moveItem(from fromIndex: Int, to toIndex: Int) {
+        print(fromIndex)
+        print(toIndex)
+        if fromIndex == toIndex {
+            return
+        }
+        else if (toIndex >= allItems.count) {
+            let movedItem = allItems[fromIndex]
+            
+            allItems.remove(at: fromIndex)
+            
+            allItems.insert(movedItem, at: fromIndex)
+        }
+        else {
+
+            let movedItem = allItems[fromIndex]
+            
+            allItems.remove(at: fromIndex)
+            
+            allItems.insert(movedItem, at: toIndex)
+        }
+        
+    }
 //
 //    init() {
 //        for _ in 0..<10 {

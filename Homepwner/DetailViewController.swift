@@ -36,6 +36,15 @@ class DetailViewController: UIViewController, UITextFieldDelegate, UINavigationC
         present(imagePicker, animated: true, completion: nil)
     }
     
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
+        
+        let image = info[.originalImage] as! UIImage
+        
+        imageView.image = image
+        
+        dismiss(animated: true, completion: nil)
+    }
+    
     
     var item: Item! {
         didSet {

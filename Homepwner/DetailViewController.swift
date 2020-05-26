@@ -40,6 +40,8 @@ class DetailViewController: UIViewController, UITextFieldDelegate, UINavigationC
         
         let image = info[.originalImage] as! UIImage
         
+        imageStore.setImage(image, forKey: item.itemKey)
+        
         imageView.image = image
         
         dismiss(animated: true, completion: nil)
@@ -51,6 +53,8 @@ class DetailViewController: UIViewController, UITextFieldDelegate, UINavigationC
             navigationItem.title = item.name
         }
     }
+    
+    var imageStore: ImageStore!
     
     let numberFormatter: NumberFormatter = {
         let formatter = NumberFormatter()
@@ -86,6 +90,10 @@ class DetailViewController: UIViewController, UITextFieldDelegate, UINavigationC
 //        dateLabel.text = "\(item.dateCreated)"
         valueField.text = numberFormatter.string(from: NSNumber(value: item.valueInDollars))
         dateLabel.text = dateFormatter.string(from: item.dateCreated)
+        
+        let key = item.itemKey
+        let imageToDisplay = imageStore.image(forKey: key)
+        imageView.image = imageToDisplay
         
     }
     

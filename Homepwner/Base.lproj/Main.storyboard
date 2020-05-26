@@ -44,30 +44,52 @@
                             </constraints>
                         </view>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="UITableViewCell" textLabel="yKN-Uj-HKb" detailTextLabel="5Qn-Hw-6d5" style="IBUITableViewCellStyleValue1" id="J8M-wo-MsX">
-                                <rect key="frame" x="0.0" y="88" width="414" height="43.5"/>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="ItemCell" rowHeight="65" id="J8M-wo-MsX" customClass="ItemCell" customModule="Homepwner" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="88" width="414" height="65"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="J8M-wo-MsX" id="N76-32-QAp">
-                                    <rect key="frame" x="0.0" y="0.0" width="414" height="43.5"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="414" height="65"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="yKN-Uj-HKb" userLabel="NameLabel">
-                                            <rect key="frame" x="20" y="12" width="33.5" height="20.5"/>
-                                            <autoresizingMask key="autoresizingMask"/>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="i6M-dR-WRs">
+                                            <rect key="frame" x="20" y="11" width="45" height="20.5"/>
+                                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
-                                        <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="Detail" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="5Qn-Hw-6d5" userLabel="ValueLabel">
-                                            <rect key="frame" x="350" y="12" width="44" height="20.5"/>
-                                            <autoresizingMask key="autoresizingMask"/>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalCompressionResistancePriority="749" text="Serial" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="N6o-KV-bdt">
+                                            <rect key="frame" x="20" y="42" width="43" height="15.5"/>
+                                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Value" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="59J-Ra-87T">
+                                            <rect key="frame" x="352" y="22" width="42" height="21"/>
+                                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                     </subviews>
+                                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    <constraints>
+                                        <constraint firstItem="N6o-KV-bdt" firstAttribute="top" secondItem="i6M-dR-WRs" secondAttribute="bottom" constant="10.5" id="DbT-ek-vil"/>
+                                        <constraint firstItem="59J-Ra-87T" firstAttribute="centerY" secondItem="N76-32-QAp" secondAttribute="centerY" id="Xue-si-l81"/>
+                                        <constraint firstItem="N6o-KV-bdt" firstAttribute="leading" secondItem="i6M-dR-WRs" secondAttribute="leading" id="gns-O4-Hob"/>
+                                        <constraint firstAttribute="trailing" secondItem="59J-Ra-87T" secondAttribute="trailing" constant="20" id="mgy-sP-dyH"/>
+                                        <constraint firstAttribute="bottom" secondItem="N6o-KV-bdt" secondAttribute="bottom" constant="7.5" id="o4z-YF-Ga0"/>
+                                        <constraint firstItem="i6M-dR-WRs" firstAttribute="top" secondItem="N76-32-QAp" secondAttribute="topMargin" id="r78-ps-zL9"/>
+                                        <constraint firstItem="i6M-dR-WRs" firstAttribute="leading" secondItem="N76-32-QAp" secondAttribute="leadingMargin" id="rWG-wb-EW9"/>
+                                    </constraints>
                                 </tableViewCellContentView>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <connections>
+                                    <outlet property="nameLabel" destination="i6M-dR-WRs" id="3Za-lq-4mU"/>
+                                    <outlet property="serialNumberLabel" destination="N6o-KV-bdt" id="9NO-sV-ChR"/>
+                                    <outlet property="valueLabel" destination="59J-Ra-87T" id="FzO-e5-Em1"/>
+                                </connections>
                             </tableViewCell>
                         </prototypes>
                         <connections>

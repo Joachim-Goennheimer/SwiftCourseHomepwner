@@ -52,24 +52,49 @@ class ItemsViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
 //        let cell = UITableViewCell(style: .value1, reuseIdentifier: "UITableViewCell")
         
-        let cell = tableView.dequeueReusableCell(withIdentifier: "UITableViewCell", for: indexPath)
+//        let cell = tableView.dequeueReusableCell(withIdentifier: "UITableViewCell", for: indexPath)
+        let cell = tableView.dequeueReusableCell(withIdentifier: "ItemCell", for: indexPath) as! ItemCell
+
         var item = Item(name: "No more items", serialNumber: "", valueInDollars: 0)
-        cell.detailTextLabel?.text = ""
+        cell.valueLabel.text = ""
+        cell.serialNumberLabel.text = ""
         
 //        check if there is an item for the respective row. Otherwise it is the last row which displays "No more items"
+//        if (indexPath.row < itemStore.allItems.count) {
+//            item = itemStore.allItems[indexPath.row]
+//            cell.detailTextLabel?.text = "$ \(item.valueInDollars)"
+//
+////            Gold challenge. Changing font size for all rows except last row.
+//            cell.textLabel?.font = UIFont.systemFont(ofSize: 20)
+//            cell.detailTextLabel?.font = UIFont.systemFont(ofSize: 20)
+//        }
+//
+//        cell.textLabel?.text = item.name
+//
+//        cell.textLabel?.textColor = UIColor(white: 1.0, alpha: 1.0)
+//        cell.detailTextLabel?.textColor = UIColor(white: 1.0, alpha: 1.0)
+//
+        
         if (indexPath.row < itemStore.allItems.count) {
             item = itemStore.allItems[indexPath.row]
-            cell.detailTextLabel?.text = "$ \(item.valueInDollars)"
-            
-//            Gold challenge. Changing font size for all rows except last row.
-            cell.textLabel?.font = UIFont.systemFont(ofSize: 20)
-            cell.detailTextLabel?.font = UIFont.systemFont(ofSize: 20)
+            cell.valueLabel.text = "$ \(item.valueInDollars)"
+            cell.serialNumberLabel.text = item.serialNumber
+
+                    
+//      Gold challenge. Changing font size for all rows except last row.
+            cell.nameLabel.font = UIFont.systemFont(ofSize: 20)
+            cell.valueLabel.font = UIFont.systemFont(ofSize: 20)
+//            has to be made smaller. Otherwise name will overwrite part of it.
+            cell.serialNumberLabel.font = UIFont.systemFont(ofSize: 9)
+
         }
 
-        cell.textLabel?.text = item.name
+        cell.nameLabel.text = item.name
         
-        cell.textLabel?.textColor = UIColor(white: 1.0, alpha: 1.0)
-        cell.detailTextLabel?.textColor = UIColor(white: 1.0, alpha: 1.0)
+//        cell.nameLabel.textColor = UIColor(white: 1.0, alpha: 1.0)
+//        cell.valueLabel.textColor = UIColor(white: 1.0, alpha: 1.0)
+        
+        
         
         return cell
     }

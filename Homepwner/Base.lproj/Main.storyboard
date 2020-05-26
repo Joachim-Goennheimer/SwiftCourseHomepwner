@@ -7,10 +7,10 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
+        <!--Detail View Controller-->
         <scene sceneID="5nb-1e-TxB">
             <objects>
-                <viewController id="SWQ-gn-tTY" sceneMemberID="viewController">
+                <viewController id="SWQ-gn-tTY" customClass="DetailViewController" customModule="Homepwner" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Z3f-D2-tGA">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -89,6 +89,12 @@
                         <viewLayoutGuide key="safeArea" id="RMS-gx-cg7"/>
                     </view>
                     <navigationItem key="navigationItem" id="VAC-mD-CAh"/>
+                    <connections>
+                        <outlet property="dateLabel" destination="FbF-jO-WjL" id="nEx-7r-8lz"/>
+                        <outlet property="nameField" destination="7Qs-k3-LN1" id="GC2-wI-6HZ"/>
+                        <outlet property="serialNumberField" destination="2sj-ax-UVl" id="aaS-pe-kfR"/>
+                        <outlet property="valueField" destination="2gS-wB-2fH" id="qVa-bG-5YF"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="0Zf-yH-CfU" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -177,7 +183,7 @@
                                     <outlet property="nameLabel" destination="i6M-dR-WRs" id="3Za-lq-4mU"/>
                                     <outlet property="serialNumberLabel" destination="N6o-KV-bdt" id="9NO-sV-ChR"/>
                                     <outlet property="valueLabel" destination="59J-Ra-87T" id="FzO-e5-Em1"/>
-                                    <segue destination="SWQ-gn-tTY" kind="show" id="zAd-qZ-EjH"/>
+                                    <segue destination="SWQ-gn-tTY" kind="show" identifier="showItem" id="zAd-qZ-EjH"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>

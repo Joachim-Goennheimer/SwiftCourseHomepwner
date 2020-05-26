@@ -60,7 +60,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         if (success) {
             print("Saved all of items")
         } else {
-            print("Could not save any of the items")
+            print("Could not save any of the Items")
         }
     }
 

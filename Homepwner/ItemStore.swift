@@ -15,8 +15,23 @@ class ItemStore {
     let itemArchiveURL: URL = {
         let documentsDirectories = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)
         let documentDirectory = documentsDirectories.first!
+        print("creating directory")
         return documentDirectory.appendingPathComponent("items.archive")
     }()
+    
+    init() {
+        typealias allItemsType = [Item]?
+        do {
+                let data = try Data(contentsOf: itemArchiveURL)
+                let decoder = PropertyListDecoder()
+                if let allItems = try decoder.decode(allItemsType.self, from: data) {
+                    self.allItems = allItems
+            }
+            print("Successfully loaded all items")
+        } catch {
+            print("itemStore init error: \(error)")
+        }
+    }
     
     @discardableResult func createItem() -> Item {
         let newItem = Item(random: true)

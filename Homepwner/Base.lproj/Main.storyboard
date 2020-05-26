@@ -77,6 +77,7 @@
                                     </stackView>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="249" text="Date Created" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FbF-jO-WjL">
                                         <rect key="frame" x="0.0" y="126" width="398" height="632"/>
+                                        <gestureRecognizers/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
@@ -89,6 +90,7 @@
                             </stackView>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <gestureRecognizers/>
                         <constraints>
                             <constraint firstItem="13V-jh-KZ8" firstAttribute="top" secondItem="RMS-gx-cg7" secondAttribute="top" constant="8" id="5B9-NX-J0V"/>
                             <constraint firstItem="13V-jh-KZ8" firstAttribute="leading" secondItem="RMS-gx-cg7" secondAttribute="leading" constant="8" id="A4h-ia-7Lv"/>
@@ -96,6 +98,9 @@
                             <constraint firstItem="RMS-gx-cg7" firstAttribute="trailing" secondItem="13V-jh-KZ8" secondAttribute="trailing" constant="8" id="L5U-yu-NO1"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="RMS-gx-cg7"/>
+                        <connections>
+                            <outletCollection property="gestureRecognizers" destination="ZLR-zv-dyG" appends="YES" id="1Yf-7r-rBu"/>
+                        </connections>
                     </view>
                     <navigationItem key="navigationItem" id="VAC-mD-CAh"/>
                     <connections>
@@ -106,15 +111,15 @@
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="0Zf-yH-CfU" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-                <tapGestureRecognizer id="YCo-O7-vIx">
+                <tapGestureRecognizer id="ZLR-zv-dyG">
                     <connections>
-                        <action selector="backgroundTapped:" destination="SWQ-gn-tTY" id="oH2-G6-SHr"/>
+                        <action selector="backgroundTapped:" destination="SWQ-gn-tTY" id="h0y-VY-HmM"/>
                     </connections>
                 </tapGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="2221.739130434783" y="124.55357142857142"/>
         </scene>
-        <!--Items View Controller-->
+        <!--Homepwner-->
         <scene sceneID="gvl-vH-3ht">
             <objects>
                 <tableViewController id="fPe-Sy-ugI" customClass="ItemsViewController" customModule="Homepwner" customModuleProvider="target" sceneMemberID="viewController">
@@ -206,7 +211,13 @@
                             <outlet property="delegate" destination="fPe-Sy-ugI" id="ILe-3g-xKe"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" id="Q06-WN-zdV"/>
+                    <navigationItem key="navigationItem" title="Homepwner" id="Q06-WN-zdV">
+                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="ezH-m6-FrW">
+                            <connections>
+                                <action selector="addNewItem:" destination="fPe-Sy-ugI" id="ZLe-L4-KvY"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ct3-Eh-DsJ" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>

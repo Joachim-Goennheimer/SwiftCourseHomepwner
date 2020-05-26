@@ -25,7 +25,7 @@ class ItemsViewController: UITableViewController {
         }
     }
     
-    @IBAction func addNewItem(_ sender: UIButton) {
+    @IBAction func addNewItem(_ sender: UIBarButtonItem) {
         
         let newItem = itemStore.createItem()
         

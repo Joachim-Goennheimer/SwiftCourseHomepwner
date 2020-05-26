@@ -19,6 +19,7 @@ class DetailViewController: UIViewController, UITextFieldDelegate {
     @IBAction func backgroundTapped(_ sender: UITapGestureRecognizer) {
         view.endEditing(true)
     }
+    @IBOutlet var imageView: UIImageView!
     
     var item: Item! {
         didSet {
@@ -46,6 +47,11 @@ class DetailViewController: UIViewController, UITextFieldDelegate {
         return true
     }
     
+//    bronze challenge chapter 14
+    override func viewDidLoad() {
+        valueField.keyboardType = .numberPad
+    }
+    
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
@@ -70,6 +76,17 @@ class DetailViewController: UIViewController, UITextFieldDelegate {
             item.valueInDollars = value.intValue
         } else {
             item.valueInDollars = 0
+        }
+    }
+    
+//    gold challenge chapter 14
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        switch segue.identifier {
+        case "changeDateCreated"?:
+            let createDateViewController = segue.destination as! CreateDateViewController
+            createDateViewController.item = item
+        default:
+            preconditionFailure("Unexpected segue identifier")
         }
     }
 }

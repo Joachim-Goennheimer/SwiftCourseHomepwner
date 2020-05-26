@@ -20,6 +20,14 @@ class DetailViewController: UIViewController, UITextFieldDelegate, UINavigationC
         view.endEditing(true)
     }
     @IBOutlet var imageView: UIImageView!
+    @IBOutlet var deletePictureButton: UIBarButtonItem!
+    
+//    silver challenge chapter 15
+    @IBAction func deletePicture(_ sender: Any) {
+        imageStore.deleteImage(forKey: item.itemKey)
+        imageView.image = nil
+        deletePictureButton.title = ""
+    }
     @IBAction func takePicture(_ sender: UIBarButtonItem) {
         
         let imagePicker = UIImagePickerController()
@@ -32,8 +40,11 @@ class DetailViewController: UIViewController, UITextFieldDelegate, UINavigationC
         }
         
         imagePicker.delegate = self
+//        bronze challenge chapter 15
+        imagePicker.allowsEditing = true
         
         present(imagePicker, animated: true, completion: nil)
+        
     }
     
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
@@ -43,6 +54,7 @@ class DetailViewController: UIViewController, UITextFieldDelegate, UINavigationC
         imageStore.setImage(image, forKey: item.itemKey)
         
         imageView.image = image
+        deletePictureButton.title = "Delete Picture"
         
         dismiss(animated: true, completion: nil)
     }
@@ -94,6 +106,10 @@ class DetailViewController: UIViewController, UITextFieldDelegate, UINavigationC
         let key = item.itemKey
         let imageToDisplay = imageStore.image(forKey: key)
         imageView.image = imageToDisplay
+        
+        if imageToDisplay == nil {
+            deletePictureButton.title = ""
+        }
         
     }
     

@@ -109,6 +109,12 @@
                                             <action selector="takePicture:" destination="SWQ-gn-tTY" id="0gT-in-Zcd"/>
                                         </connections>
                                     </barButtonItem>
+                                    <barButtonItem systemItem="flexibleSpace" id="cNa-m2-tr4"/>
+                                    <barButtonItem title="Delete Picture" id="40O-50-Por">
+                                        <connections>
+                                            <action selector="deletePicture:" destination="SWQ-gn-tTY" id="DXC-Mf-h4T"/>
+                                        </connections>
+                                    </barButtonItem>
                                 </items>
                             </toolbar>
                         </subviews>
@@ -131,6 +137,7 @@
                     <navigationItem key="navigationItem" id="VAC-mD-CAh"/>
                     <connections>
                         <outlet property="dateLabel" destination="FbF-jO-WjL" id="nEx-7r-8lz"/>
+                        <outlet property="deletePictureButton" destination="40O-50-Por" id="IgW-M8-d0r"/>
                         <outlet property="imageView" destination="RBN-z4-iKp" id="BJT-pp-FpI"/>
                         <outlet property="nameField" destination="7Qs-k3-LN1" id="GC2-wI-6HZ"/>
                         <outlet property="serialNumberField" destination="2sj-ax-UVl" id="aaS-pe-kfR"/>

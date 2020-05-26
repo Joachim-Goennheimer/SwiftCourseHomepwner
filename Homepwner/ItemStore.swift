@@ -12,6 +12,11 @@ import UIKit
 
 class ItemStore {
     var allItems = [Item]()
+    let itemArchiveURL: URL = {
+        let documentsDirectories = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)
+        let documentDirectory = documentsDirectories.first!
+        return documentDirectory.appendingPathComponent("items.archive")
+    }()
     
     @discardableResult func createItem() -> Item {
         let newItem = Item(random: true)
@@ -45,6 +50,18 @@ class ItemStore {
             allItems.insert(movedItem, at: toIndex)
         }
         
+    }
+    
+    func saveChanges() -> Bool {
+        print("Saving items to \(itemArchiveURL.path)")
+        do {
+            let data = try PropertyListEncoder().encode(allItems)
+            try data.write(to: itemArchiveURL)
+            return true
+        } catch {
+            print("Error saving items: \(error)")
+        }
+        return false
     }
 //
 //    init() {

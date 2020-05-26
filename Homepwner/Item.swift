@@ -10,7 +10,7 @@
 
 import UIKit
 
-class Item: NSObject {
+class Item: NSObject, Codable {
     var name: String
     var valueInDollars: Int
     var serialNumber: String?

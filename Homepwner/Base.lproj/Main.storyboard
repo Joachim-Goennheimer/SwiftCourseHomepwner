@@ -15,11 +15,11 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="2cf-yR-3rG">
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="2cf-yR-3rG">
                                 <rect key="frame" x="8" y="96" width="398" height="748"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="13V-jh-KZ8">
-                                        <rect key="frame" x="0.0" y="0.0" width="398" height="184.5"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="398" height="374"/>
                                         <subviews>
                                             <stackView opaque="NO" contentMode="scaleToFill" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="5Rj-j4-Xgg">
                                                 <rect key="frame" x="0.0" y="0.0" width="398" height="34"/>
@@ -39,6 +39,7 @@
                                                         </connections>
                                                     </textField>
                                                 </subviews>
+                                                <variation key="heightClass=compact" axis="vertical"/>
                                             </stackView>
                                             <stackView opaque="NO" contentMode="scaleToFill" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="hnf-BX-rYn">
                                                 <rect key="frame" x="0.0" y="42" width="398" height="34"/>
@@ -58,6 +59,7 @@
                                                         </connections>
                                                     </textField>
                                                 </subviews>
+                                                <variation key="heightClass=compact" axis="vertical"/>
                                             </stackView>
                                             <stackView opaque="NO" contentMode="scaleToFill" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="qcj-zo-Mlp">
                                                 <rect key="frame" x="0.0" y="84" width="398" height="34"/>
@@ -77,16 +79,17 @@
                                                         </connections>
                                                     </textField>
                                                 </subviews>
+                                                <variation key="heightClass=compact" axis="vertical"/>
                                             </stackView>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="249" text="Date Created" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FbF-jO-WjL">
-                                                <rect key="frame" x="0.0" y="126" width="398" height="20.5"/>
+                                                <rect key="frame" x="0.0" y="126" width="398" height="210"/>
                                                 <gestureRecognizers/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qN5-qZ-XhT">
-                                                <rect key="frame" x="0.0" y="154.5" width="398" height="30"/>
+                                                <rect key="frame" x="0.0" y="344" width="398" height="30"/>
                                                 <state key="normal" title="Change Date"/>
                                                 <connections>
                                                     <segue destination="gdb-nf-GJh" kind="show" identifier="changeDateCreated" id="zhi-1q-yiD"/>
@@ -99,9 +102,10 @@
                                         </constraints>
                                     </stackView>
                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="248" verticalCompressionResistancePriority="749" translatesAutoresizingMaskIntoConstraints="NO" id="RBN-z4-iKp">
-                                        <rect key="frame" x="0.0" y="184.5" width="398" height="563.5"/>
+                                        <rect key="frame" x="0.0" y="374" width="398" height="374"/>
                                     </imageView>
                                 </subviews>
+                                <variation key="heightClass=compact" axis="horizontal"/>
                             </stackView>
                             <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="QRN-hS-pIM">
                                 <rect key="frame" x="0.0" y="852" width="414" height="44"/>

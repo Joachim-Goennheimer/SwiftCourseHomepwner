@@ -104,7 +104,11 @@
                                     <constraint firstAttribute="height" constant="44" id="khl-9X-uRX"/>
                                 </constraints>
                                 <items>
-                                    <barButtonItem systemItem="camera" id="q0R-gf-kMb"/>
+                                    <barButtonItem systemItem="camera" id="q0R-gf-kMb">
+                                        <connections>
+                                            <action selector="takePicture:" destination="SWQ-gn-tTY" id="0gT-in-Zcd"/>
+                                        </connections>
+                                    </barButtonItem>
                                 </items>
                             </toolbar>
                         </subviews>

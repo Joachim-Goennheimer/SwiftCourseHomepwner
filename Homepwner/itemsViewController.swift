@@ -12,18 +12,18 @@ class ItemsViewController: UITableViewController {
 
     var itemStore: ItemStore!
     var numberOfItems: Int = 0
-
-    @IBAction func toggleEditingMode(_ sender: UIButton) {
-        
-        if isEditing {
-            sender.setTitle("Edit", for: .normal)
-            setEditing(false, animated: true)
-        }
-        else {
-            sender.setTitle("Done", for: .normal)
-            setEditing(true, animated: true)
-        }
-    }
+    
+//    @IBAction func toggleEditingMode(_ sender: UIButton) {
+//
+//        if isEditing {
+//            sender.setTitle("Edit", for: .normal)
+//            setEditing(false, animated: true)
+//        }
+//        else {
+//            sender.setTitle("Done", for: .normal)
+//            setEditing(true, animated: true)
+//        }
+//    }
     
     @IBAction func addNewItem(_ sender: UIBarButtonItem) {
         

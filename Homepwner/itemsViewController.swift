@@ -55,7 +55,7 @@ class ItemsViewController: UITableViewController {
 //        let cell = tableView.dequeueReusableCell(withIdentifier: "UITableViewCell", for: indexPath)
         let cell = tableView.dequeueReusableCell(withIdentifier: "ItemCell", for: indexPath) as! ItemCell
 
-        var item = Item(name: "No more items", serialNumber: "", valueInDollars: 0)
+        var item = Item(name: "No more items", serialNumber: "", valueInDollars: -1)
         cell.valueLabel.text = ""
         cell.serialNumberLabel.text = ""
         
@@ -91,6 +91,10 @@ class ItemsViewController: UITableViewController {
 
         cell.nameLabel.text = item.name
         
+        colorForCell(cell: cell, value: item.valueInDollars)
+        
+        
+//        before implementing ItemCell background image showed everywhere. Therefore font color had to be changed
 //        cell.nameLabel.textColor = UIColor(white: 1.0, alpha: 1.0)
 //        cell.valueLabel.textColor = UIColor(white: 1.0, alpha: 1.0)
         
@@ -158,6 +162,16 @@ class ItemsViewController: UITableViewController {
             return sourceIndexPath
         }
         return proposedDestinationIndexPath
+    }
+
+//    bronze challenge: cell colors
+    func colorForCell(cell: ItemCell, value: Int) ->  Void {
+
+        if(value >= 50){
+            cell.valueLabel.textColor = UIColor.red
+        }else if(value >= 0){
+            cell.valueLabel.textColor = UIColor.green
+        }
     }
 }
 
